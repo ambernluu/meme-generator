@@ -35,6 +35,8 @@ form.addEventListener('submit', (event) => {
     deleteMeme.innerText = 'remove';
     deleteMeme.classList.add("delete");
     newDiv.append(deleteMeme);
+
+    form.reset();
 });
 
     //remove a meme
