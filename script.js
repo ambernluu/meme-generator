@@ -46,7 +46,7 @@ function createMeme (event,){
     deleteMeme.classList.add("delete");
     newDiv.append(deleteMeme);
 
-    form.reset();
+    //form.reset();
 }
 
     //remove a meme
