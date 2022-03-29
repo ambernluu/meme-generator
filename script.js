@@ -1,12 +1,21 @@
 const form = document.getElementById('form');
+
 const main = document.getElementById('main');
 const memeDiv = document.createElement('div');
 memeDiv.id = "memeBox";
 main.append(memeDiv);
 
+form.addEventListener('change', (event) => {
+    // console.log(event.target);
+    // console.log(event.target.value);
+    // const textColor = event.target.value;
+    document.getElementById('memeBox').style.color = event.target.value;
+    form.addEventListener('submit', createMeme);
+}, false);
+
 
 //once form is submitted, build the meme box with the content
-form.addEventListener('submit', (event) => {
+function createMeme (event,){
     event.preventDefault();
     const url = document.getElementById('imageUrl').value;
     const top = document.getElementById('top').value;
@@ -23,6 +32,7 @@ form.addEventListener('submit', (event) => {
     bottomText.innerText = bottom;
     bottomText.classList = "bottom text";
 
+
     const newDiv = document.createElement('div');
     newDiv.classList.add("meme");
     newDiv.append(img);
@@ -37,11 +47,11 @@ form.addEventListener('submit', (event) => {
     newDiv.append(deleteMeme);
 
     form.reset();
-});
+}
 
     //remove a meme
     memeDiv.addEventListener('click', (event) => {
-        console.log("WTF");
-        console.log(event);
-        event.target.parentNode.remove();
+        if((event.target.innerText === 'remove')){
+            event.target.parentNode.remove();
+        }
     });
